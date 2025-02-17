@@ -4,16 +4,23 @@ def main():
         if equation.lower() == "stop":
             break
         if "+" in equation:
-            print("addition")
+            a = equation.split('+')
+            answer = int(a[0])+int(a[1])
+            print(answer)
         elif "-" in equation:
-            print("subtraction")
+            a = equation.split('-')
+            answer = int(a[0])-int(a[1])
+            print(answer)
         elif "*" in equation:
-            print("multiplication")
+            a = equation.split('*')
+            answer = int(a[0])*int(a[1])
+            print(answer)
         elif "/" in equation:
-            print("division")
+            a = equation.split('/')
+            answer = int(a[0])/int(a[1])
+            print(answer)
         else:
             print("Cannot recognise this type.")
-
 
 if __name__ == "__main__":
     main()
