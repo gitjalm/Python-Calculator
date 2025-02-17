@@ -1,3 +1,5 @@
+from math import sqrt
+
 def main():
     while True:
         equation = input("What is your equation? ")
@@ -18,6 +20,10 @@ def main():
         elif "/" in equation:
             a = equation.split('/')
             answer = int(a[0])/int(a[1])
+            print(answer)
+        elif "!" in equation:
+            a = equation.split('!')
+            answer = sqrt(int(a[0]))
             print(answer)
         else:
             print("Cannot recognise this type.")
