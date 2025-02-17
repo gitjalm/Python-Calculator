@@ -3,25 +3,26 @@ from math import sqrt
 def main():
     while True:
         equation = input("What is your equation? ")
+        equation_list = equation.split()
         if equation.lower() == "stop":
             break
-        if "+" in equation:
+        if equation_list[1] == "+":
             a = equation.split('+')
             answer = int(a[0])+int(a[1])
             print(answer)
-        elif "-" in equation:
+        elif equation_list[1] == "-":
             a = equation.split('-')
             answer = int(a[0])-int(a[1])
             print(answer)
-        elif "*" in equation:
+        elif equation_list[1] == "*":
             a = equation.split('*')
             answer = int(a[0])*int(a[1])
             print(answer)
-        elif "/" in equation:
+        elif equation_list[1] == "/":
             a = equation.split('/')
             answer = int(a[0])/int(a[1])
             print(answer)
-        elif "!" in equation:
+        elif equation_list[1] == "!":
             if int(equation[0]) <= 0:
                 print("Cannot get the square root of numbers that are 0 or less.")
             else:
