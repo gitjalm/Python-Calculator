@@ -47,46 +47,54 @@ def equal(info):
     main(equation)
 
 def clear():
-    global equation
-    equation = " "
+    global temp_equation
+    temp_equation = " "
+    lbl.config(text=temp_equation)
 
 root = tk.Tk()
 root.title("Calculator")
 
-lbl = tk.Label(root, text="0")
+lbl = tk.Label(root, text="0", height=3)
 lbl.grid(row=0, column=0)
 
-btn = tk.Button(root, text="0", command=lambda: button_press("0"))
-btn.grid(row= 5, column=1)
+btn = tk.Button(root, text="Backspace", command=lambda: clear(), height=4, width=8)
+btn.grid(row= 5, column=3)
 
-btn = tk.Button(root, text="=", command=lambda: equal(temp_equation))
+btn = tk.Button(root, text="/", command=lambda: button_press(" / "), height=4, width=8)
+btn.grid(row= 5, column=0)
+btn = tk.Button(root, text="0", command=lambda: button_press("0"), height=4, width=8)
+btn.grid(row= 5, column=1)
+btn = tk.Button(root, text="*", command=lambda: button_press(" * "), height=4, width=8)
+btn.grid(row= 5, column=2)
+
+btn = tk.Button(root, text="=", command=lambda: equal(temp_equation), height=4, width=8)
 btn.grid(row= 4, column=3)
 
-btn = tk.Button(root, text="1", command=lambda: button_press("1"))
+btn = tk.Button(root, text="1", command=lambda: button_press("1"), height=4, width=8)
 btn.grid(row= 4, column=0)
-btn = tk.Button(root, text="2", command=lambda: button_press("2"))
+btn = tk.Button(root, text="2", command=lambda: button_press("2"), height=4, width=8)
 btn.grid(row= 4, column=1)
-btn = tk.Button(root, text="3", command=lambda: button_press("3"))
+btn = tk.Button(root, text="3", command=lambda: button_press("3"), height=4, width=8)
 btn.grid(row= 4, column=2)
 
-btn = tk.Button(root, text="+", command=lambda: button_press(" + "))
+btn = tk.Button(root, text="+", command=lambda: button_press(" + "), height=4, width=8)
 btn.grid(row= 3, column=3)
 
-btn = tk.Button(root, text="4", command=lambda: button_press("4"))
+btn = tk.Button(root, text="4", command=lambda: button_press("4"), height=4, width=8)
 btn.grid(row= 3, column=0)
-btn = tk.Button(root, text="5", command=lambda: button_press("5"))
+btn = tk.Button(root, text="5", command=lambda: button_press("5"), height=4, width=8)
 btn.grid(row= 3, column=1)
-btn = tk.Button(root, text="6", command=lambda: button_press("6"))
+btn = tk.Button(root, text="6", command=lambda: button_press("6"), height=4, width=8)
 btn.grid(row= 3, column=2)
 
-btn = tk.Button(root, text="-", command=lambda: button_press(" - "))
+btn = tk.Button(root, text="-", command=lambda: button_press(" - "), height=4, width=8)
 btn.grid(row= 2, column=3)
 
-btn = tk.Button(root, text="7", command=lambda: button_press("7"))
+btn = tk.Button(root, text="7", command=lambda: button_press("7"), height=4, width=8)
 btn.grid(row= 2, column=0)
-btn = tk.Button(root, text="8", command=lambda: button_press("8"))
+btn = tk.Button(root, text="8", command=lambda: button_press("8"), height=4, width=8)
 btn.grid(row= 2, column=1)
-btn = tk.Button(root, text="9", command=lambda: button_press("9"))
+btn = tk.Button(root, text="9", command=lambda: button_press("9"), height=4, width=8)
 btn.grid(row= 2, column=2)
 
 root.mainloop()
