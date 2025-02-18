@@ -6,34 +6,31 @@ temp_equation = ""  #Laget en temp_equation for midlertidlig lagring av infoen s
 
 def main(equation):
     equation_list = equation.split()    #Splitter equation stringen opp i en liste så index 1 blir hvilken type regneregel som skal brukes.
-    if " " in equation: #Sjekker om det er et mellomrom i equation.
-        if equation_list[1] == "+":     #Sjekker om index 1 er et plus tegn.
-            a = equation.split('+')     #Lager en ny liste med tallene hver for seg.
-            answer = int(a[0])+int(a[1])    #Regner ut å setter sammen svaret.
-            print(answer)   #Printer svaret.
-        elif equation_list[1] == "-":
-            a = equation.split('-')
-            answer = int(a[0])-int(a[1])
-            print(answer)
-        elif equation_list[1] == "*":
-            a = equation.split('*')
-            answer = int(a[0])*int(a[1])
-            print(answer)
-        elif equation_list[1] == "/":
-            a = equation.split('/')
-            answer = int(a[0])/int(a[1])
-            print(answer)
-        elif equation_list[1] == "!":
-            if int(equation[0]) <= 0:   #Sjekker om tallet er lik eller mindre enn 0.
-                print("Cannot get the square root of numbers that are 0 or less.")  #Printer en feilmelding til brukeren.
-            else:
-                a = equation.split('!')
-                answer = sqrt(int(a[0]))    #Bruker den importerte funksjonen sqrt til å få kvadratroten til tallet.
-                print(answer)
+    if equation_list[1] == "+":     #Sjekker om index 1 er et plus tegn.
+        a = equation.split('+')     #Lager en ny liste med tallene hver for seg.
+        answer = int(a[0])+int(a[1])    #Regner ut å setter sammen svaret.
+        lbl.config(text=answer)  #Printer svaret.
+    elif equation_list[1] == "-":
+        a = equation.split('-')
+        answer = int(a[0])-int(a[1])
+        lbl.config(text=answer)  #Printer svaret.
+    elif equation_list[1] == "*":
+        a = equation.split('*')
+        answer = int(a[0])*int(a[1])
+        lbl.config(text=answer)  #Printer svaret.
+    elif equation_list[1] == "/":
+        a = equation.split('/')
+        answer = int(a[0])/int(a[1])
+        lbl.config(text=answer)  #Printer svaret.
+    elif equation_list[1] == "!":
+        if int(equation[0]) <= 0:   #Sjekker om tallet er lik eller mindre enn 0.
+            print("Cannot get the square root of numbers that are 0 or less.")  #Printer en feilmelding til brukeren.
         else:
-            print("Cannot recognise this type or incorrect use of spaces.")     #Feilmelding.
+            a = equation.split('!')
+            answer = sqrt(int(a[0]))    #Bruker den importerte funksjonen sqrt til å få kvadratroten til tallet.
+            lbl.config(text=answer)  #Printer svaret.
     else:
-        print("Remember to use correct spaces in between numbers and symbols.")     #Feilmelding.
+        print("Cannot recognise this type.")     #Feilmelding.
 
 def button_press(num):  #Funksjonen som blir kalt når du trykker en av knappene som ikke er Backspace eller er lik.
     global temp_equation
@@ -46,7 +43,7 @@ def equal(info):
     equation = temp_equation    
     main(equation)
 
-def clear():    #Funksjonen som blir kalt npr brukeren trykker backspace knappen.
+def clear():    #Funksjonen som blir kalt når brukeren trykker backspace knappen.
     global temp_equation
     temp_equation = " "     #Fjerner alle tegn og tall fra temp_equation.
     lbl.config(text=temp_equation)
