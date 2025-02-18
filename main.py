@@ -23,7 +23,7 @@ def main(equation):
         answer = int(a[0])/int(a[1])
         lbl.config(text=answer)  #Printer svaret.
     elif equation_list[1] == "!":
-        if int(equation[0]) <= 0:   #Sjekker om tallet er lik eller mindre enn 0.
+        if int(equation_list[0]) <= 0:   #Sjekker om tallet er lik eller mindre enn 0.
             print("Cannot get the square root of numbers that are 0 or less.")  #Printer en feilmelding til brukeren.
         else:
             a = equation.split('!')
@@ -50,9 +50,14 @@ def clear():    #Funksjonen som blir kalt når brukeren trykker backspace knappe
 
 root = tk.Tk()
 root.title("Calculator")
+root.resizable(False, False)
+root.geometry('262x435')
 
-lbl = tk.Label(root, text="0", height=3)    #Viser tallene og tegnene som allerde har blitt skrevet inn i kalkulatoren.
-lbl.grid(row=0, column=0)   #Velger hvor i kalkulatorens grid den befinner seg i.
+frame = tk.LabelFrame(root)
+frame.grid(row=0, column=0, sticky="ew", padx=5, pady=5, columnspan=4)
+
+lbl = tk.Label(frame, text="0", height=3, width=22, font=("Arial", 14), anchor="w")    #Viser tallene og tegnene som allerde har blitt skrevet inn i kalkulatoren.
+lbl.grid(row=0, column=0, columnspan=4, sticky="ew")   #Velger hvor i kalkulatorens grid den befinner seg i.
 
 btn = tk.Button(root, text="Backspace", command=lambda: clear(), height=4, width=8)     #Knapp for å fjerne all forrige data.
 btn.grid(row= 5, column=3)
@@ -93,5 +98,8 @@ btn = tk.Button(root, text="8", command=lambda: button_press("8"), height=4, wid
 btn.grid(row= 2, column=1)
 btn = tk.Button(root, text="9", command=lambda: button_press("9"), height=4, width=8)
 btn.grid(row= 2, column=2)
+
+btn = tk.Button(root, text="Kvadratrot", command=lambda: button_press(" ! "), height=4, width=8)
+btn.grid(row= 1, column=3)
 
 root.mainloop()     #Kjører GUI i en loop.
