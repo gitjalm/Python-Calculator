@@ -62,13 +62,19 @@ def add_to_history(answer):
 root = tk.Tk()
 root.title("Calculator")
 root.resizable(False, False)
-root.geometry('262x435')
+root.geometry('525x440')
 
 frame = tk.LabelFrame(root)
 frame.grid(row=0, column=0, sticky="ew", padx=5, pady=5, columnspan=4)
 
 lbl = tk.Label(frame, text="0", height=3, width=22, font=("Arial", 14), anchor="w")    #Viser tallene og tegnene som allerde har blitt skrevet inn i kalkulatoren.
 lbl.grid(row=0, column=0, columnspan=4, sticky="ew")   #Velger hvor i kalkulatorens grid den befinner seg i.
+
+frame2 = tk.LabelFrame(root)
+frame2.grid(row=0, column=4, sticky="nswe", padx=5, pady=5, columnspan=4, rowspan=6)
+
+lbl2 = tk.Label(frame2, text=" ", height=3, width=22, font=("Arial", 14), anchor="w")    #Viser tallene og tegnene som allerde har blitt skrevet inn i kalkulatoren.
+lbl2.grid(row=0, column=4, columnspan=4, rowspan=6, sticky="nswe")   #Velger hvor i kalkulatorens grid den befinner seg i.
 
 btn = tk.Button(root, text="⌫", command=lambda: clear(), height=4, width=8)     #Knapp for å fjerne all forrige data.
 btn.grid(row= 5, column=3)
