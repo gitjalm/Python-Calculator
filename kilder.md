@@ -2,6 +2,8 @@
 https://stackoverflow.com/questions/9685946/math-operations-from-string
 https://www.w3schools.com/python/ref_string_split.asp
 https://www.w3schools.com/python/ref_math_sqrt.asp
+https://www.w3schools.com/python/python_lists_add.asp
+https://www.geeksforgeeks.org/formatted-string-literals-f-strings-python/
 
 Tkinter:
 https://www.quora.com/How-do-you-update-label-text-in-Python-Tkinter-Python-TkInter-development
