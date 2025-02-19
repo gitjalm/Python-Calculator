@@ -3,7 +3,7 @@ import tkinter as tk
 
 equation = ""   #Flyttet equation variabel så den kan bli brukt av alle funksjoner og elementer.
 temp_equation = ""  #Laget en temp_equation for midlertidlig lagring av infoen så resten ikke blir rørt.
-history = []    #Lager en liste.
+list_index = 0
 
 def main(equation):
     equation_list = equation.split()    #Splitter equation stringen opp i en liste så index 1 blir hvilken type regneregel som skal brukes.
@@ -46,7 +46,7 @@ def button_press(num):  #Funksjonen som blir kalt når du trykker en av knappene
 def equal(info):
     global equation
     global temp_equation
-    equation = temp_equation    
+    equation = temp_equation   
     main(equation)
 
 def clear():    #Funksjonen som blir kalt når brukeren trykker backspace knappen.
@@ -56,8 +56,10 @@ def clear():    #Funksjonen som blir kalt når brukeren trykker backspace knappe
 
 def add_to_history(answer):
     global equation
+    global list_index
     joined_answers = f"{equation} = {answer}"    #Setter sammen ligningen og svaret på en fin måte ved hjelp av en f streng.
-    history.append(joined_answers)   #Legger til det nye svaret i en liste.
+    listbox.insert(list_index, joined_answers)
+    list_index += 1
 
 root = tk.Tk()
 root.title("Calculator")
@@ -73,8 +75,8 @@ lbl.grid(row=0, column=0, columnspan=4, sticky="ew")   #Velger hvor i kalkulator
 frame2 = tk.LabelFrame(root)
 frame2.grid(row=0, column=4, sticky="nswe", padx=5, pady=5, columnspan=4, rowspan=6)
 
-lbl2 = tk.Label(frame2, text=" ", height=3, width=22, font=("Arial", 14), anchor="w")    #Viser tallene og tegnene som allerde har blitt skrevet inn i kalkulatoren.
-lbl2.grid(row=0, column=4, columnspan=4, rowspan=6, sticky="nswe")   #Velger hvor i kalkulatorens grid den befinner seg i.
+listbox = tk.Listbox(frame2, height=26, width=41)
+listbox.pack()
 
 btn = tk.Button(root, text="⌫", command=lambda: clear(), height=4, width=8)     #Knapp for å fjerne all forrige data.
 btn.grid(row= 5, column=3)
